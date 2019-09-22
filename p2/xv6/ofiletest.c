@@ -51,16 +51,24 @@ main(int argc, char *argv[])
         fn[5] = buf[0];
         fn[6] = buf[1];
         fn[7] = '\0';
+        if (i >= 13) {
+            printf(1, "can not open ofile%d\n", i);
+            continue;
+        }
         open(fn, O_CREATE);
     }
 
     int numOfFileClose = argc - 2;
     for (int i = 0; i < numOfFileClose; i++) {
         int c = atoi(argv[2 + i]);
+//        printf(1, "arg[%d] is %d\n", 2 + i, c);
         itoa(c, buf);
         fn[5] = buf[0];
         fn[6] = buf[1];
         fn[7] = '\0';
+        if (c >= n) {
+            printf(1, "%s is invalid\n", fn);
+        }
         close(3 + c);
         if(unlink(fn) < 0){
             printf(2, "%s failed to delete\n", fn);
