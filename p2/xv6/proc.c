@@ -527,3 +527,51 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+
+int
+getofilecnt(int pid)
+{
+    struct proc *p;
+
+    acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+        if(p->pid == pid){
+            int counter = 0;
+            int fd;
+
+            for(fd = 0; fd < NOFILE; fd++){
+                if(p->ofile[fd]){
+                    counter++;
+                }
+            }
+            release(&ptable.lock);
+            return counter;
+        }
+    }
+    release(&ptable.lock);
+    return -1;
+}
+
+
+int
+getofilenext(int pid)
+{
+    struct proc *p;
+
+    acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+        if(p->pid == pid){
+            int fd;
+            for(fd = 0; fd < NOFILE; fd++){
+                if(p->ofile[fd] == 0){
+                    release(&ptable.lock);
+                    return fd;
+                }
+            }
+        }
+    }
+    release(&ptable.lock);
+    return -1;
+
+}
