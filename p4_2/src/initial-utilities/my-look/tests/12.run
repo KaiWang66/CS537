@@ -1,1 +1,0 @@
-./my-look $(< tests/12.target)

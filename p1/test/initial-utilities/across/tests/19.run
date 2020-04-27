@@ -1,1 +1,0 @@
-./across $(< tests/19.target)

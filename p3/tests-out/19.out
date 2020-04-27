@@ -1,5 +1,0 @@
-echo this is ok
-this is ok
-wait 0 &
-JID 0 terminated
-exit &

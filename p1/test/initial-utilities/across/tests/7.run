@@ -1,1 +1,0 @@
-./across $(< tests/7.target) tests/7.in

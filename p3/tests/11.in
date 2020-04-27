@@ -1,4 +1,0 @@
-ls tests/p2a-test > tests-out/output11
-cat tests-out/output11
-rm -f tests-out/output11
-exit

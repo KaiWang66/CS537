@@ -1,1 +1,0 @@
-./across $(< tests/10.target) 10.out 10.rc
