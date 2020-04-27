@@ -176,16 +176,16 @@ UPROGS=\
 	_kill\
 	_ln\
 	_ls\
-	_test_11\
-	_test_12\
-	_test_13\
-	_test_14\
-	_test_15\
-	_test_16\
-	_test_17\
-	_test_18\
-	_test_19\
-	_test_20\
+	_test_31\
+	_test_32\
+	_test_33\
+	_test_34\
+	_test_35\
+	_test_36\
+	_test_37\
+	_test_38\
+	_test_39\
+	_test_40\
 	_mkdir\
 	_rm\
 	_sh\

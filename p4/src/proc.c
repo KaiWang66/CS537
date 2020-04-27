@@ -14,9 +14,9 @@ struct {
   struct proc proc[NPROC];
 } ptable;
 
-struct proc *mlq[4][NPROC];
-int tail[4] = {0, 0 , 0, 0};
-int ts[4] = {20, 16, 12, 8};
+static struct proc *mlq[4][NPROC];
+static int tail[4] = {0, 0 , 0, 0};
+static int ts[4] = {20, 16, 12, 8};
 
 static struct proc *initproc;
 // static struct proc *mlq[4][NPROC];
