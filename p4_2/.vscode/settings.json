@@ -1,7 +1,5 @@
 {
     "files.associations": {
-        "user.h": "c",
-        "pstat.h": "c",
-        "proc.h": "c"
+        "user.h": "c"
     }
 }

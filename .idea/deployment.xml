@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="CS Lab">
+    <serverData>
+      <paths name="CS Lab">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/private/cs537" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (9f65c7f7-a80f-4976-a4be-9a3b18605a65)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.nzqVdssZqz" local="$PROJECT_DIR$/p5/xv6" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/p5/xv6/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

@@ -1,0 +1,1 @@
+./across $(< tests/13.target)
