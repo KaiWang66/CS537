@@ -1,0 +1,1 @@
+./my-look $(< tests/6.target) tests/6.in

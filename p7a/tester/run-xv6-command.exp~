@@ -1,0 +1,198 @@
+#! /usr/bin/env expect
+
+set test [lindex $argv 2]
+#echo "AbbyM"
+#echo $test
+#"[ lindex $argv 2 ]"
+
+proc shutdown {} {
+    # send command to halt qemu (ctrl-a x)
+    # https://stackoverflow.com/questions/27050473/how-to-send-ctrl-a-then-d-in-expect
+    send "\x01"; send "x"
+    # make sure to wait for it all to stop
+    # (without this, script was terminating before qemu quit -> bad)
+    expect eof
+}
+
+# turn off timeout (perhaps make this flexible later)
+set timeout -1
+
+# build and launch xv6 on qemu
+spawn make [lindex $argv 0] -f [lindex $argv 1] qemu-nox
+
+trap {
+    shutdown
+    exit 0
+} SIGINT
+
+
+# wait for initial prompt
+expect "init: starting sh\r"
+expect "$ "
+
+
+if { "[lindex $argv 2]" == "test_1" } {
+    # puts "we are here"
+    send "echo HELLO > test1.txt\r"
+    expect "$ "
+    send "test_1\r"
+    expect "$ "
+}
+
+#puts "we are here"
+
+if { "[lindex $argv 2]" == "test_2" } {
+    send "echo HELLO > test2.txt\r"
+    expect "$ "
+    send "test_2\r"
+    expect "$ "
+}
+
+if { "[lindex $argv 2]" == "test_3"} {
+
+    send "echo HELLO > test3.txt\r"
+    expect "$ "
+    send "test_3\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_4"} {
+
+    send "echo HELLO > test4.txt\r"
+    expect "$ "
+    send "test_4\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_5"} {
+
+    send "echo HELLO > test5.txt\r"
+    expect "$ "
+    send "test_5\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_6"} {
+
+    send "echo HELLO > test6.txt\r"
+    expect "$ "
+    send "test_6\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_7"} {
+
+    send "echo HELLO > test7.txt\r"
+    expect "$ "
+    send "test_7\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_8"} {
+
+    send "echo HELLO > test8.txt\r"
+    expect "$ "
+    send "test_8\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_9"} {
+
+    send "echo HELLO > test9.txt\r"
+    expect "$ "
+    send "mkdir test\r"
+    expect "$ "
+    send "test_9\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_10"} {
+
+    send "echo HELLO > test10.txt\r"
+    expect "$ "
+    send "mkdir test\r"
+    expect "$ "
+    send "test_10\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_11"} {
+
+    send "echo HELLO > test11.txt\r"
+    expect "$ "
+    send "mkdir test\r"
+    expect "$ "
+    send "test_11\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_12"} {
+
+    send "echo HELLO > test12.txt\r"
+    expect "$ "
+    send "mkdir test\r"
+    expect "$ "
+    send "test_12\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_13"} {
+
+    send "echo HELLO > test13.txt\r"
+    expect "$ "
+    send "test_13\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_14"} {
+
+    send "echo HELLO > test14.txt\r"
+    expect "$ "
+    send "test_14\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_15"} {
+
+#    send "echo HELLO > test15.txt\r"
+#    expect "$ "
+    send "test_15\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_16"} {
+
+    send "echo HELLO > test16.txt\r"
+    expect "$ "
+    send "test_16\r"
+    expect "$ "
+    send "cat testSYM16.txt\r"
+    expect "$ "
+    send "rm test16.txt\r"
+    expect "$ "
+    send "cat testSYM16.txt\r"
+    expect"$ "
+}
+if { "[lindex $argv 2]" == "test_17"} {
+
+    send "echo HELLO > test17.txt\r"
+    expect "$ "
+    send "test_17\r"
+    expect "$ "
+}
+if { "[lindex $argv 2]" == "test_18"} {
+
+    send "echo HELLO > test18.txt\r"
+    expect "$ "
+    send "mkdir test\r"
+    expect "$ "
+    send "test_18\r"
+    expect "$ "
+}
+
+
+
+# send command as per command line
+#send "[lindex $argv 2]\r"
+
+# wait for it to be done
+#expect "$ "
+
+# shutdown qemu properly (avoid runaways)
+shutdown
+
+
+
+
+
+
+
+
+
